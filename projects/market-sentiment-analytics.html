@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>News &amp; Market Sentiment Analytics — Martina Števanková</title>
+<meta name="description" content="Test whether short-term S&amp;P 500 market direction (up/down next day) can be predicted from financial news headlines, comparing text-based and senti">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+<nav class="site-nav">
+  <div class="container">
+    <span class="nav-mark"><span class="dot"></span>M. ŠTEVANKOVÁ</span>
+    <div class="nav-links">
+      <a class="back" href="../index.html#projects">← All projects</a>
+    </div>
+  </div>
+</nav>
+
+<header class="proj-hero">
+  <div class="container">
+    <div class="rec-id mono">03 · individual exam project</div>
+    <h1>News &amp; Market Sentiment Analytics</h1>
+    <div class="proj-meta-grid">
+      <div class="cell"><div class="k">Type</div><div class="v">Individual exam project</div></div>
+      <div class="cell"><div class="k">Tools</div><div class="v">Python · scikit-learn · VADER · FinBERT</div></div>
+      <div class="cell"><div class="k">Dataset</div><div class="v">~19,000 headlines · S&amp;P 500 (2008–2024)</div></div>
+      <div class="cell"><div class="k">Method</div><div class="v">TF-IDF, lexicon &amp; transformer sentiment</div></div>
+    </div>
+  </div>
+</header>
+
+<div class="proj-body">
+  <div class="container">
+
+    <h2>Problem / Goal</h2>
+    <p>Test whether short-term S&amp;P 500 market direction (up/down next day) can be predicted from financial news headlines, comparing text-based and sentiment-based modeling approaches.</p>
+
+    <h2>What I did</h2>
+    <div class="sub">Data preprocessing</div>
+<ul>
+  <li>Cleaned and parsed the raw CSV; verified no missing values across 19,127 observations</li>
+  <li>Aggregated same-day headlines into daily documents (~9,000 daily observations), aligning text with daily market outcomes</li>
+  <li>Used a time-consistent train/test split (train on older data, test on more recent) to respect time order and avoid leakage</li>
+</ul>
+<div class="sub">Model 1 — TF-IDF baseline</div>
+<ul>
+  <li>TF-IDF vectorization of headlines feeding a logistic regression classifier</li>
+  <li>Included dummy classifiers as sanity-check baselines</li>
+</ul>
+<div class="sub">Model 2 — Lexicon &amp; transformer sentiment</div>
+<ul>
+  <li>VADER: converted headlines to sentiment scores, aggregated to daily features (mean, std dev, share positive/negative)</li>
+  <li>FinBERT: applied a financial-domain transformer per headline, built a sentiment score from positive/negative probabilities</li>
+  <li>Trained logistic regression on both sets of daily sentiment features, using consistent ROC-AUC evaluation throughout</li>
+</ul>
+
+
+    <h2>Key findings</h2>
+    <ul class="findings-list">
+  <li>TF-IDF baseline performed slightly below random guessing (accuracy ≈0.49, ROC-AUC ≈0.46)</li>
+  <li>VADER and FinBERT both modestly outperformed the baseline (ROC-AUC ≈0.52–0.523), but remained close to random</li>
+  <li>FinBERT's financial-domain training gave only a marginal edge over the simpler VADER lexicon</li>
+  <li>Conclusion: news headlines alone are not sufficient to reliably predict short-term market direction — the value of the project is in the rigorous comparison of approaches and honest reporting of a negative result, not in producing a working trading signal</li>
+    </ul>
+
+    <h2>Skills demonstrated</h2>
+    <div class="skill-tags">
+  <span class="tag">Text preprocessing</span>
+  <span class="tag">TF-IDF vectorization</span>
+  <span class="tag">Lexicon sentiment (VADER)</span>
+  <span class="tag">Transformer sentiment (FinBERT)</span>
+  <span class="tag">Time-aware train/test splitting</span>
+  <span class="tag">Model evaluation (ROC-AUC)</span>
+  <span class="tag">Honest reporting of negative results</span>
+    </div>
+
+    
+
+  </div>
+</div>
+
+<div class="proj-nav">
+  <div class="container" style="display:flex; justify-content:space-between;">
+    <a href="customer-churn-prediction.html">← Customer Churn Prediction</a>
+    <a href="global-energy-explorer.html">Global Energy Explorer →</a>
+  </div>
+</div>
+
+<footer class="site-footer" id="contact">
+  <div class="container">
+    <div>
+      <div class="nav-mark" style="color:var(--paper); margin-bottom:10px;"><span class="dot"></span>M. ŠTEVANKOVÁ</div>
+      <div class="footer-mark">
+        <a href="mailto:martinastevankova23@gmail.com">martinastevankova23@gmail.com</a> · +45 53 33 59 41
+      </div>
+    </div>
+    <div class="footer-mark">Kolding, Denmark</div>
+  </div>
+</footer>
+
+</body>
+</html>

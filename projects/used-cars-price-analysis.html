@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Used Cars Price Analysis — Martina Števanková</title>
+<meta name="description" content="Identify which factors drive the resale price of used cars, and use the model to predict how price changes as a car ages and accumulates mileage.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+<nav class="site-nav">
+  <div class="container">
+    <span class="nav-mark"><span class="dot"></span>M. ŠTEVANKOVÁ</span>
+    <div class="nav-links">
+      <a class="back" href="../index.html#projects">← All projects</a>
+    </div>
+  </div>
+</nav>
+
+<header class="proj-hero">
+  <div class="container">
+    <div class="rec-id mono">06 · statistical modeling exam project</div>
+    <h1>Used Cars Price Analysis</h1>
+    <div class="proj-meta-grid">
+      <div class="cell"><div class="k">Type</div><div class="v">Statistical modeling exam project</div></div>
+      <div class="cell"><div class="k">Tools</div><div class="v">R</div></div>
+      <div class="cell"><div class="k">Dataset</div><div class="v">171 used vehicles, same make/model</div></div>
+      <div class="cell"><div class="k">Method</div><div class="v">Weighted regression, bootstrap, AIC comparison</div></div>
+    </div>
+  </div>
+</header>
+
+<div class="proj-body">
+  <div class="container">
+
+    <h2>Problem / Goal</h2>
+    <p>Identify which factors drive the resale price of used cars, and use the model to predict how price changes as a car ages and accumulates mileage.</p>
+
+    <h2>What I did</h2>
+    <ul>
+  <li><strong>Data quality &amp; EDA</strong> — checked for missing values and duplicates; scatterplots and a correlation matrix showed a strong negative Age–Price relationship and a weaker Odometer effect</li>
+  <li><strong>Modeling</strong> — applied a log transform to the right-skewed Price variable and fit a multiple regression on Age, Odometer, Inspection, ABS, and Sunroof</li>
+  <li><strong>Diagnostics</strong> — checked residuals vs. fitted, Q-Q plots, Scale-Location, and Cook's distance/leverage; flagged but kept one influential outlier</li>
+  <li><strong>Heteroscedasticity fix</strong> — fit a weighted least squares model; conclusions held versus the original</li>
+  <li><strong>Sensitivity analysis</strong> — compared 5 alternative model specifications via AIC, plus bootstrap estimation</li>
+  <li><strong>Prediction</strong> — applied the model to 3 car scenarios, back-transformed to euros, and added a depreciation column</li>
+</ul>
+
+
+    <h2>Key findings</h2>
+    <ul class="findings-list">
+  <li>Age is the strongest, most stable predictor: roughly a 1.2% price decrease per additional month, holding other variables constant</li>
+  <li>Odometer has a similar but noisier negative effect; Inspection, ABS, and Sunroof show little to no reliable effect</li>
+  <li>Findings held up under outlier reweighting and multiple alternative model specifications, with the Age effect's confidence interval staying entirely below zero</li>
+    </ul>
+
+    <h2>Skills demonstrated</h2>
+    <div class="skill-tags">
+  <span class="tag">Data cleaning</span>
+  <span class="tag">EDA &amp; visualization</span>
+  <span class="tag">Multiple linear regression</span>
+  <span class="tag">Regression diagnostics</span>
+  <span class="tag">Weighted least squares</span>
+  <span class="tag">AIC model comparison</span>
+  <span class="tag">Bootstrapping</span>
+  <span class="tag">Translating models into business predictions</span>
+    </div>
+
+    
+
+  </div>
+</div>
+
+<div class="proj-nav">
+  <div class="container" style="display:flex; justify-content:space-between;">
+    <a href="sdg7-energy-webapp.html">← SDG 7 Web App</a>
+    <a href="device-inventory-dashboard.html">Device Inventory Dashboard →</a>
+  </div>
+</div>
+
+<footer class="site-footer" id="contact">
+  <div class="container">
+    <div>
+      <div class="nav-mark" style="color:var(--paper); margin-bottom:10px;"><span class="dot"></span>M. ŠTEVANKOVÁ</div>
+      <div class="footer-mark">
+        <a href="mailto:martinastevankova23@gmail.com">martinastevankova23@gmail.com</a> · +45 53 33 59 41
+      </div>
+    </div>
+    <div class="footer-mark">Kolding, Denmark</div>
+  </div>
+</footer>
+
+</body>
+</html>

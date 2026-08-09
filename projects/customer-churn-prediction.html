@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Customer Churn Prediction — Martina Števanková</title>
+<meta name="description" content="Predict which customers are likely to churn, comparing multiple modeling approaches — classical ML, neural networks, and representation learning via a">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+<nav class="site-nav">
+  <div class="container">
+    <span class="nav-mark"><span class="dot"></span>M. ŠTEVANKOVÁ</span>
+    <div class="nav-links">
+      <a class="back" href="../index.html#projects">← All projects</a>
+    </div>
+  </div>
+</nav>
+
+<header class="proj-hero">
+  <div class="container">
+    <div class="rec-id mono">02 · ML exam project (group work)</div>
+    <h1>Customer Churn Prediction</h1>
+    <div class="proj-meta-grid">
+      <div class="cell"><div class="k">Type</div><div class="v">ML exam project, group work</div></div>
+      <div class="cell"><div class="k">Tools</div><div class="v">Python · scikit-learn · TensorFlow/Keras · SHAP</div></div>
+      <div class="cell"><div class="k">Dataset</div><div class="v">Telco Customer Churn (Kaggle)</div></div>
+      <div class="cell"><div class="k">Method</div><div class="v">Classical ML, neural nets, autoencoders</div></div>
+    </div>
+  </div>
+</header>
+
+<div class="proj-body">
+  <div class="container">
+
+    <h2>Problem / Goal</h2>
+    <p>Predict which customers are likely to churn, comparing multiple modeling approaches — classical ML, neural networks, and representation learning via autoencoders — to see which best identifies at-risk customers.</p>
+
+    <h2>What I did</h2>
+    <div class="sub">EDA &amp; preprocessing</div>
+<ul>
+  <li>Explored the dataset, checked for outliers, correlations, and class imbalance</li>
+  <li>Cleaned data, engineered features, converted binary fields; fit preprocessing on train only to avoid leakage</li>
+</ul>
+<div class="sub">Shallow learning models</div>
+<ul>
+  <li>Logistic regression, random forest, gradient boosting, and XGBoost, with cross-validation focused on F1</li>
+  <li>Built a stacked ensemble combining multiple models</li>
+</ul>
+<div class="sub">Neural network models</div>
+<ul>
+  <li>Feedforward neural network with class weighting to address churn imbalance</li>
+  <li>Tuned the classification threshold, evaluating the tradeoff between accuracy and recall on churners</li>
+  <li>Evaluated using loss, accuracy, AUC, and ROC curves</li>
+</ul>
+<div class="sub">Autoencoders &amp; explainability</div>
+<ul>
+  <li>Trained autoencoders to compress features into latent embeddings at multiple dimensions</li>
+  <li>Compared logistic regression and FFNN performance on raw features vs. latent embeddings</li>
+  <li>Applied SHAP to explain predictions — global feature importance and individual waterfall plots</li>
+</ul>
+
+
+    <h2>Key findings</h2>
+    <ul class="findings-list">
+  <li>Class imbalance required deliberate handling (class weights, F1-focused evaluation, threshold tuning) rather than relying on accuracy alone</li>
+  <li>Threshold tuning showed a clear tradeoff: small accuracy losses could meaningfully increase churner detection</li>
+  <li>Autoencoder-based latent embeddings were compared directly against raw features to test whether compression improved or hurt predictive performance</li>
+  <li>SHAP made it possible to explain not just which model performed best, but why — which features drove individual predictions</li>
+    </ul>
+
+    <h2>Skills demonstrated</h2>
+    <div class="skill-tags">
+  <span class="tag">EDA &amp; data cleaning</span>
+  <span class="tag">Class imbalance handling</span>
+  <span class="tag">Classical ML &amp; stacking</span>
+  <span class="tag">Neural network design (Keras)</span>
+  <span class="tag">Threshold tuning</span>
+  <span class="tag">Autoencoders</span>
+  <span class="tag">SHAP interpretability</span>
+  <span class="tag">Leakage-safe methodology</span>
+    </div>
+
+    
+
+  </div>
+</div>
+
+<div class="proj-nav">
+  <div class="container" style="display:flex; justify-content:space-between;">
+    <a href="sleep-disorders-thesis.html">← Sleep Disorders Thesis</a>
+    <a href="market-sentiment-analytics.html">Market Sentiment Analytics →</a>
+  </div>
+</div>
+
+<footer class="site-footer" id="contact">
+  <div class="container">
+    <div>
+      <div class="nav-mark" style="color:var(--paper); margin-bottom:10px;"><span class="dot"></span>M. ŠTEVANKOVÁ</div>
+      <div class="footer-mark">
+        <a href="mailto:martinastevankova23@gmail.com">martinastevankova23@gmail.com</a> · +45 53 33 59 41
+      </div>
+    </div>
+    <div class="footer-mark">Kolding, Denmark</div>
+  </div>
+</footer>
+
+</body>
+</html>

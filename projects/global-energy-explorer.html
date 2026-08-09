@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Global Energy Explorer — Martina Števanková</title>
+<meta name="description" content="Build an interactive tool that lets non-experts explore global energy production, CO2 emissions, and economic indicators over 21 years — investigating">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+<nav class="site-nav">
+  <div class="container">
+    <span class="nav-mark"><span class="dot"></span>M. ŠTEVANKOVÁ</span>
+    <div class="nav-links">
+      <a class="back" href="../index.html#projects">← All projects</a>
+    </div>
+  </div>
+</nav>
+
+<header class="proj-hero">
+  <div class="container">
+    <div class="rec-id mono">04 · group data visualization project</div>
+    <h1>Global Energy Explorer</h1>
+    <div class="proj-meta-grid">
+      <div class="cell"><div class="k">Type</div><div class="v">Group project — poster + report</div></div>
+      <div class="cell"><div class="k">Tools</div><div class="v">Python · Dash (Plotly)</div></div>
+      <div class="cell"><div class="k">Data</div><div class="v">158 countries · 2000–2021, 3,320 records</div></div>
+      <div class="cell"><div class="k">Team</div><div class="v">3 members</div></div>
+    </div>
+  </div>
+</header>
+
+<div class="proj-body">
+  <div class="container">
+
+    <h2>Problem / Goal</h2>
+    <p>Build an interactive tool that lets non-experts explore global energy production, CO2 emissions, and economic indicators over 21 years — investigating which energy sources dominate, how they've trended, and whether renewable growth relates to lower emissions.</p>
+
+    <h2>What I did</h2>
+    <div class="sub">Data integration</div>
+<ul>
+  <li>Merged two Kaggle datasets on sustainable energy and global energy mix</li>
+  <li>Handled extensive missing data via imputation, excluding countries with too little usable data</li>
+</ul>
+<div class="sub">App architecture</div>
+<ul>
+  <li>Built as a multi-page Dash app with a shared navbar and central page container</li>
+  <li>Structured a proper data layer rather than loading data ad hoc per page</li>
+  <li>Added a persistent color-blind-safe mode toggle, stored client-side so the setting survives across sessions</li>
+</ul>
+<div class="sub">Visualizations</div>
+<ul>
+  <li>World map, bubble charts (GDP vs. renewables vs. emissions), global trend charts, and per-country time series</li>
+  <li>Interaction kept intentionally minimal (filtering + hover) to stay accessible to non-technical users</li>
+</ul>
+
+
+    <h2>Key findings</h2>
+    <ul class="findings-list">
+  <li>Renewable energy growth doesn't consistently translate into proportional CO2 emissions reductions — true for many developed countries, but not universally</li>
+  <li>Developing countries often show high renewable shares out of necessity, but shift toward conventional sources as their economies grow</li>
+  <li>Globally, renewables still make up under 30% of total energy production, while CO2 emissions have risen roughly 50% since 2000</li>
+    </ul>
+
+    <h2>Skills demonstrated</h2>
+    <div class="skill-tags">
+  <span class="tag">Multi-source data integration</span>
+  <span class="tag">Missing-data handling</span>
+  <span class="tag">Python dashboarding (Dash)</span>
+  <span class="tag">Multi-page app architecture</span>
+  <span class="tag">Accessible design</span>
+  <span class="tag">Interactive visualization</span>
+  <span class="tag">Team collaboration</span>
+  <span class="tag">Technical writing</span>
+    </div>
+
+    
+
+  </div>
+</div>
+
+<div class="proj-nav">
+  <div class="container" style="display:flex; justify-content:space-between;">
+    <a href="market-sentiment-analytics.html">← Market Sentiment Analytics</a>
+    <a href="sdg7-energy-webapp.html">SDG 7 Web App →</a>
+  </div>
+</div>
+
+<footer class="site-footer" id="contact">
+  <div class="container">
+    <div>
+      <div class="nav-mark" style="color:var(--paper); margin-bottom:10px;"><span class="dot"></span>M. ŠTEVANKOVÁ</div>
+      <div class="footer-mark">
+        <a href="mailto:martinastevankova23@gmail.com">martinastevankova23@gmail.com</a> · +45 53 33 59 41
+      </div>
+    </div>
+    <div class="footer-mark">Kolding, Denmark</div>
+  </div>
+</footer>
+
+</body>
+</html>

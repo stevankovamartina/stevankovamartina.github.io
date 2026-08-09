@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Data-Driven Web App: Communicating UN SDG 7 — Martina Števanková</title>
+<meta name="description" content="Make complex global energy data accessible and engaging to a general audience, focused on UN Sustainable Development Goal 7 (Affordable and Clean Ener">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+<nav class="site-nav">
+  <div class="container">
+    <span class="nav-mark"><span class="dot"></span>M. ŠTEVANKOVÁ</span>
+    <div class="nav-links">
+      <a class="back" href="../index.html#projects">← All projects</a>
+    </div>
+  </div>
+</nav>
+
+<header class="proj-hero">
+  <div class="container">
+    <div class="rec-id mono">05 · exam project</div>
+    <h1>Data-Driven Web App: Communicating UN SDG 7</h1>
+    <div class="proj-meta-grid">
+      <div class="cell"><div class="k">Type</div><div class="v">Exam project — Data Driven Applications</div></div>
+      <div class="cell"><div class="k">Tools</div><div class="v">HTML · CSS · JavaScript · Leaflet · REST APIs</div></div>
+      <div class="cell"><div class="k">Goal</div><div class="v">Communicate clean energy access data</div></div>
+    </div>
+  </div>
+</header>
+
+<div class="proj-body">
+  <div class="container">
+
+    <h2>Problem / Goal</h2>
+    <p>Make complex global energy data accessible and engaging to a general audience, focused on UN Sustainable Development Goal 7 (Affordable and Clean Energy) — specifically renewable energy share, energy efficiency, and international support for clean energy.</p>
+
+    <h2>What I did</h2>
+    <div class="sub">Data &amp; design</div>
+<ul>
+  <li>Merged two public Kaggle datasets (global energy mix, electricity access/GDP) into one structured CSV</li>
+  <li>Structured the site as a single-page storytelling flow: intro, interactive exploration, then synthesis</li>
+</ul>
+<div class="sub">Interactive visualizations</div>
+<ul>
+  <li>World map (Leaflet) colored by electricity access %, with a year selector</li>
+  <li>Linked line chart and summary table showing renewable vs. non-renewable trends per selected country</li>
+</ul>
+<div class="sub">External API integrations</div>
+<ul>
+  <li>New York Times API — live news on renewable/clean energy, parsed and rendered dynamically</li>
+  <li>YouTube Data API — related educational videos, parsed for title/thumbnail/link</li>
+  <li>Handled both with async/await, proper error handling, and dynamic DOM insertion</li>
+</ul>
+
+
+    <h2>The site itself</h2>
+    <p>Real screenshots from the finished site — the storytelling flow runs from a plain-language intro through interactive exploration to a synthesis of what the data actually shows.</p>
+    <div class="gallery wide">
+      <figure class="span2">
+        <img src="../assets/sdg7/hero.png" alt="Site hero section: 'Clean Energy for All — Understanding SDG 7' with intro text beside a solar panel photo" loading="lazy">
+        <figcaption>Landing section — framing SDG 7 in plain language before the data begins</figcaption>
+      </figure>
+      <figure class="span2">
+        <img src="../assets/sdg7/targets.png" alt="Three SDG 7 sub-target cards: 7.2 renewable share, 7.3 energy efficiency, 7.a international support" loading="lazy">
+        <figcaption>SDG 7 sub-targets (7.2 / 7.3 / 7.a), each expandable with "why this matters"</figcaption>
+      </figure>
+      <figure>
+        <img src="../assets/sdg7/map.png" alt="Interactive Leaflet world map showing electricity access by country, colored red to green, with a year selector set to 2015" loading="lazy">
+        <figcaption>Leaflet map — electricity access by country, with a year selector (2000–2020)</figcaption>
+      </figure>
+      <figure>
+        <img src="../assets/sdg7/chart-table.png" alt="Line chart and data table showing Afghanistan's renewable vs non-renewable electricity mix from 2000 to 2020, linked to a country selector" loading="lazy">
+        <figcaption>Linked chart + table — same data, two views, synced to one country selector</figcaption>
+      </figure>
+      <figure class="span2">
+        <img src="../assets/sdg7/conclusion.png" alt="Closing section 'What This Tells Us About SDG 7' summarizing the findings, beside a photo of a solar farm" loading="lazy">
+        <figcaption>Closing synthesis — what the data actually implies, not just what it shows</figcaption>
+      </figure>
+    </div>
+
+    <h2>Code sample</h2>
+    <p>The map's year filter, pulled directly from the project — parses the dataset once, then redraws country markers whenever the year changes rather than reloading the map.</p>
+    <div class="code-block">
+      <span class="label">script.js — map year filter</span>
+      <pre>function updateMapForYear(year) {
+  if (!accessLayer || !energyData.length) return;
+
+  accessLayer.clearLayers();
+
+  const rows = energyData.filter(
+    row => Number(row[COL_YEAR]) === Number(year)
+  );
+
+  rows.forEach(row => {
+    const lat = toNum(row[COL_LAT]);
+    const lon = toNum(row[COL_LON]);
+    const access = toNum(row[COL_ACCESS]);
+
+    if (Number.isNaN(lat) || Number.isNaN(lon) || Number.isNaN(access)) {
+      return;
+    }
+
+    const color = getAccessColor(access);
+
+    const circle = L.circleMarker([lat, lon], {
+      radius: 6,
+      color,
+      fillColor: color,
+      fillOpacity: 0.85,
+      weight: 0.7
+    });
+
+    circle.bindPopup(`&lt;strong&gt;${row[COL_ENTITY]}&lt;/strong&gt;&lt;br/&gt;
+      Access to electricity: ${access.toFixed(1)}%&lt;br/&gt;
+      Year: ${year}`);
+
+    circle.addTo(accessLayer);
+  });
+}
+
+function getAccessColor(access) {
+  if (access < 40) return "#d73027";
+  if (access < 70) return "#fc8d59";
+  if (access < 90) return "#fee08b";
+  if (access < 99) return "#91cf60";
+  return "#1a9850";
+}</pre>
+    </div>
+
+    <h2>Key findings</h2>
+    <ul class="findings-list">
+  <li>Kept visualizations to 3 core types (map, chart, table) rather than overloading with more, to avoid cognitive overload</li>
+  <li>Capped external content (7 articles, 4 videos) to match layout and avoid overwhelming the user</li>
+  <li>The underlying data reinforced that closing the SDG 7 gap depends on more than technology — economic conditions, infrastructure, and policy all matter</li>
+    </ul>
+
+    <h2>Skills demonstrated</h2>
+    <div class="skill-tags">
+  <span class="tag">Data merging &amp; cleaning</span>
+  <span class="tag">Interactive visualization (Leaflet)</span>
+  <span class="tag">RESTful API integration</span>
+  <span class="tag">Async JavaScript</span>
+  <span class="tag">DOM manipulation</span>
+  <span class="tag">Responsive HTML/CSS</span>
+  <span class="tag">UX / data storytelling</span>
+    </div>
+
+    
+
+  </div>
+</div>
+
+<div class="proj-nav">
+  <div class="container" style="display:flex; justify-content:space-between;">
+    <a href="global-energy-explorer.html">← Global Energy Explorer</a>
+    <a href="used-cars-price-analysis.html">Used Cars Price Analysis →</a>
+  </div>
+</div>
+
+<footer class="site-footer" id="contact">
+  <div class="container">
+    <div>
+      <div class="nav-mark" style="color:var(--paper); margin-bottom:10px;"><span class="dot"></span>M. ŠTEVANKOVÁ</div>
+      <div class="footer-mark">
+        <a href="mailto:martinastevankova23@gmail.com">martinastevankova23@gmail.com</a> · +45 53 33 59 41
+      </div>
+    </div>
+    <div class="footer-mark">Kolding, Denmark</div>
+  </div>
+</footer>
+
+</body>
+</html>

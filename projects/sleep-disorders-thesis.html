@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Subjective &amp; Objective Sleep Patterns Across Sleep Disorders — Martina Števanková</title>
+<meta name="description" content="Insomnia, Obstructive Sleep Apnea (OSA), and their comorbidity (COMISA) have overlapping symptoms that make diagnosis difficult. This thesis investiga">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+<nav class="site-nav">
+  <div class="container">
+    <span class="nav-mark"><span class="dot"></span>M. ŠTEVANKOVÁ</span>
+    <div class="nav-links">
+      <a class="back" href="../index.html#projects">← All projects</a>
+    </div>
+  </div>
+</nav>
+
+<header class="proj-hero">
+  <div class="container">
+    <div class="rec-id mono">01 · master's thesis</div>
+    <h1>Subjective &amp; Objective Sleep Patterns Across Sleep Disorders</h1>
+    <div class="proj-meta-grid">
+      <div class="cell"><div class="k">Type</div><div class="v">MSc Thesis, Data Science</div></div>
+      <div class="cell"><div class="k">Tools</div><div class="v">Python · scikit-learn · SHAP · TensorFlow/Keras</div></div>
+      <div class="cell"><div class="k">Dataset</div><div class="v">28,534 patients — PSG + questionnaire data</div></div>
+      <div class="cell"><div class="k">Method</div><div class="v">PCA, clustering, classification, autoencoders</div></div>
+    </div>
+  </div>
+</header>
+
+<div class="proj-body">
+  <div class="container">
+
+    <h2>Problem / Goal</h2>
+    <p>Insomnia, Obstructive Sleep Apnea (OSA), and their comorbidity (COMISA) have overlapping symptoms that make diagnosis difficult. This thesis investigated whether these clinically defined sleep disorders can be separated using machine learning, and how much subjective (questionnaire) vs. objective (polysomnography) data contributes to that separation.</p>
+
+    <h2>What I did</h2>
+    <ul>
+  <li><strong>Data integration &amp; cleaning</strong> — merged questionnaire metadata (540K+ records) with PSG-derived hypnodensity files via patient ID, validated timestamps, and handled missing data without global imputation to preserve diagnostic integrity; final analysis set of 28,534 patients across 4 clinical groups (Control, Insomnia, OSA, COMISA)</li>
+  <li><strong>Derived variable construction</strong> — built clinical outcome labels from raw questionnaire items and PSG indices using literature-based thresholds</li>
+  <li><strong>Feature engineering</strong> — extracted entropy and stage-probability summary features from raw hypnodensity time series to make them usable for classical ML</li>
+  <li><strong>EDA &amp; unsupervised analysis</strong> — PCA (with/without diagnostic variables) and clustering (k-means, hierarchical, DBSCAN) to explore natural structure and overlap between groups</li>
+  <li><strong>Supervised classification</strong> — trained and tuned 4 shallow models (Logistic Regression, Random Forest, Gradient Boosting, SVM) across multiclass and binary settings, with leakage-prevention filtering and stratified train/test splits</li>
+  <li><strong>Model interpretability</strong> — SHAP analysis across all models and settings to identify which features drove each disorder's classification</li>
+  <li><strong>Feature-group contribution analysis</strong> — compared performance using questionnaire-only, PSG-only, and combined feature sets</li>
+  <li><strong>Nonlinear representation learning</strong> — built an autoencoder (172→10 dims) to compare against PCA and re-ran classification on the learned latent space</li>
+</ul>
+
+
+    <h2>Key findings</h2>
+    <ul class="findings-list">
+  <li>All models substantially beat baseline; binary classification consistently outperformed multiclass, showing models struggle more when separating overlapping disorders simultaneously</li>
+  <li>OSA was most reliably classified, driven by objective PSG features (respiratory/arousal indices)</li>
+  <li>Insomnia was hardest to separate from Control, and relied mainly on subjective questionnaire data — objective PSG features added little</li>
+  <li>COMISA showed major overlap with OSA in multiclass settings but was strongly separable from Control in binary settings — the challenge is disentangling it from neighboring disorders, not detecting it</li>
+  <li>PCA and autoencoder latent spaces showed consistent, continuous overlap between groups — reinforcing that the overlap is a property of the clinical reality, not a modeling limitation</li>
+    </ul>
+
+    <h2>Skills demonstrated</h2>
+    <div class="skill-tags">
+  <span class="tag">Large-scale data integration</span>
+  <span class="tag">Clinical variable construction</span>
+  <span class="tag">Feature engineering</span>
+  <span class="tag">PCA &amp; clustering</span>
+  <span class="tag">Multiclass &amp; binary classification</span>
+  <span class="tag">Leakage-safe pipeline design</span>
+  <span class="tag">SHAP interpretability</span>
+  <span class="tag">Autoencoders</span>
+  <span class="tag">Academic writing</span>
+    </div>
+
+    
+
+  </div>
+</div>
+
+<div class="proj-nav">
+  <div class="container" style="display:flex; justify-content:space-between;">
+    <a href="device-inventory-dashboard.html">← Device Inventory Dashboard</a>
+    <a href="customer-churn-prediction.html">Customer Churn Prediction →</a>
+  </div>
+</div>
+
+<footer class="site-footer" id="contact">
+  <div class="container">
+    <div>
+      <div class="nav-mark" style="color:var(--paper); margin-bottom:10px;"><span class="dot"></span>M. ŠTEVANKOVÁ</div>
+      <div class="footer-mark">
+        <a href="mailto:martinastevankova23@gmail.com">martinastevankova23@gmail.com</a> · +45 53 33 59 41
+      </div>
+    </div>
+    <div class="footer-mark">Kolding, Denmark</div>
+  </div>
+</footer>
+
+</body>
+</html>
