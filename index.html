@@ -245,50 +245,97 @@
     </div>
   </div>
 </section>
-
-<section class="section" id="languages">
+<section class="section languages-section" id="languages">
   <div class="container">
-    <div class="section-head">
+
+    <div class="section-head languages-head">
       <h2>Languages</h2>
-      <span class="section-num mono">proficiency</span>
+      <span class="section-num mono">05 languages · self-assessed</span>
     </div>
-    <div class="lang-chart">
-      <svg viewBox="0 0 640 260" role="img" aria-label="Language proficiency chart: Slovak native, English fluent, Spanish upper-intermediate, Italian intermediate, Danish beginner">
-        <title>Language proficiency levels</title>
-        <line class="lc-grid" x1="210" y1="10" x2="210" y2="205"/>
-        <line class="lc-grid" x1="320" y1="10" x2="320" y2="205"/>
-        <line class="lc-grid" x1="430" y1="10" x2="430" y2="205"/>
-        <line class="lc-grid" x1="540" y1="10" x2="540" y2="205"/>
-        <line class="lc-grid" x1="610" y1="10" x2="610" y2="205"/>
 
-        <text class="lc-label" x="0" y="24">Danish</text>
-        <rect class="lc-bar lvl-1" x="130" y="14" width="80" height="12" rx="6"/>
-        <text class="lc-level" x="222" y="24">Beginner</text>
+    <div
+      class="lang-chart"
+      role="img"
+      aria-label="Language proficiency: Danish beginner, Italian intermediate, Spanish upper-intermediate, English fluent or advanced, Slovak native"
+    >
 
-        <text class="lc-label" x="0" y="64">Italian</text>
-        <rect class="lc-bar lvl-2" x="130" y="54" width="190" height="12" rx="6"/>
-        <text class="lc-level" x="332" y="64">Intermediate</text>
+      <!-- proficiency scale -->
+      <div class="lang-axis" aria-hidden="true">
+        <span></span>
 
-        <text class="lc-label" x="0" y="104">Spanish</text>
-        <rect class="lc-bar lvl-3" x="130" y="94" width="300" height="12" rx="6"/>
-        <text class="lc-level" x="442" y="104">Upper-Intermediate</text>
+        <div class="lang-scale">
+          <span>Beginner</span>
+          <span>Intermediate</span>
+          <span>Upper-Intermediate</span>
+          <span>Fluent / Advanced</span>
+          <span>Native</span>
+        </div>
 
-        <text class="lc-label" x="0" y="144">English</text>
-        <rect class="lc-bar lvl-4" x="130" y="134" width="410" height="12" rx="6"/>
-        <text class="lc-level" x="552" y="144">Fluent / Advanced</text>
+        <span></span>
+      </div>
 
-        <text class="lc-label" x="0" y="184">Slovak</text>
-        <rect class="lc-bar full" x="130" y="174" width="480" height="12" rx="6"/>
-        <text class="lc-level strong" x="480" y="204" text-anchor="middle">Native</text>
 
-        <line class="lc-axis" x1="130" y1="215" x2="610" y2="215"/>
-        <text class="lc-tick" x="210" y="232" text-anchor="middle">Beginner</text>
-        <text class="lc-tick" x="320" y="232" text-anchor="middle">Intermediate</text>
-        <text class="lc-tick" x="430" y="232" text-anchor="middle">Upper-Int.</text>
-        <text class="lc-tick" x="540" y="232" text-anchor="middle">Fluent</text>
-        <text class="lc-tick" x="610" y="232" text-anchor="end">Native</text>
-      </svg>
+      <!-- Danish -->
+      <div class="lang-row" style="--level: 10%;">
+        <span class="lang-name">Danish</span>
+
+        <div class="lang-track">
+          <span class="lang-line"></span>
+        </div>
+
+        <span class="lang-level">Beginner</span>
+      </div>
+
+
+      <!-- Italian -->
+      <div class="lang-row" style="--level: 30%;">
+        <span class="lang-name">Italian</span>
+
+        <div class="lang-track">
+          <span class="lang-line"></span>
+        </div>
+
+        <span class="lang-level">Intermediate</span>
+      </div>
+
+
+      <!-- Spanish -->
+      <div class="lang-row" style="--level: 50%;">
+        <span class="lang-name">Spanish</span>
+
+        <div class="lang-track">
+          <span class="lang-line"></span>
+        </div>
+
+        <span class="lang-level">Upper-Intermediate</span>
+      </div>
+
+
+      <!-- English -->
+      <div class="lang-row" style="--level: 70%;">
+        <span class="lang-name">English</span>
+
+        <div class="lang-track">
+          <span class="lang-line"></span>
+        </div>
+
+        <span class="lang-level">Fluent / Advanced</span>
+      </div>
+
+
+      <!-- Slovak -->
+      <div class="lang-row" style="--level: 90%;">
+        <span class="lang-name">Slovak</span>
+
+        <div class="lang-track">
+          <span class="lang-line"></span>
+        </div>
+
+        <span class="lang-level">Native</span>
+      </div>
+
     </div>
+
   </div>
 </section>
 
