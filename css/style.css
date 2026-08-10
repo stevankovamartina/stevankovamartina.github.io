@@ -223,6 +223,25 @@ button:focus-visible {
   content: "● ";
 }
 
+.schema .row.lang-block {
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 6px;
+}
+
+.schema .lang-list {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  font-family: var(--font-display);
+  font-size: 13px;
+  color: var(--ink);
+}
+
+.schema .lang-list b {
+  font-weight: 600;
+}
+
 /* ---------- Skills strip ---------- */
 .skills-strip {
   padding: 28px 0;
