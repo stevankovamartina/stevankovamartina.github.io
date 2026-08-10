@@ -1,7 +1,6 @@
 /* ==========================================================================
    Martina Števanková — Portfolio
-   Design system: "structured record" motif — a data scientist's own
-   bio and work presented as field:value data, not decorated cards.
+   Design system: "structured record" motif
    ========================================================================== */
 
 :root {
@@ -26,13 +25,23 @@
   --pad: clamp(20px, 5vw, 56px);
 }
 
+
+/* ==========================================================================
+   GENERAL
+   ========================================================================== */
+
 @media (prefers-reduced-motion: no-preference) {
-  html { scroll-behavior: smooth; }
+  html {
+    scroll-behavior: smooth;
+  }
 }
 
-* { box-sizing: border-box; }
+* {
+  box-sizing: border-box;
+}
 
-html, body {
+html,
+body {
   margin: 0;
   padding: 0;
   background: var(--paper);
@@ -46,7 +55,10 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-img { max-width: 100%; display: block; }
+img {
+  max-width: 100%;
+  display: block;
+}
 
 a {
   color: var(--petrol);
@@ -60,7 +72,10 @@ a {
   padding-right: var(--pad);
 }
 
-h1, h2, h3, h4 {
+h1,
+h2,
+h3,
+h4 {
   font-family: var(--font-display);
   font-weight: 600;
   line-height: 1.15;
@@ -68,7 +83,9 @@ h1, h2, h3, h4 {
   letter-spacing: -0.01em;
 }
 
-p { margin: 0 0 1em; }
+p {
+  margin: 0 0 1em;
+}
 
 .mono {
   font-family: var(--font-mono);
@@ -80,14 +97,17 @@ p { margin: 0 0 1em; }
   color: var(--paper);
 }
 
-/* Focus visibility */
 a:focus-visible,
 button:focus-visible {
   outline: 2px solid var(--petrol);
   outline-offset: 3px;
 }
 
-/* ---------- Nav ---------- */
+
+/* ==========================================================================
+   NAVIGATION
+   ========================================================================== */
+
 .site-nav {
   position: sticky;
   top: 0;
@@ -135,13 +155,19 @@ button:focus-visible {
   padding: 4px 0;
 }
 
-.nav-links a:hover { color: var(--petrol); }
+.nav-links a:hover {
+  color: var(--petrol);
+}
 
 .nav-links a.back {
   color: var(--petrol);
 }
 
-/* ---------- Hero ---------- */
+
+/* ==========================================================================
+   HERO
+   ========================================================================== */
+
 .hero {
   padding: clamp(48px, 9vw, 96px) 0 clamp(32px, 6vw, 64px);
   border-bottom: 1px solid var(--line);
@@ -182,7 +208,11 @@ button:focus-visible {
   max-width: 46ch;
 }
 
-/* schema block */
+
+/* ==========================================================================
+   PROFILE / SCHEMA BLOCK
+   ========================================================================== */
+
 .schema {
   background: var(--paper-raised);
   border: 1px solid var(--line);
@@ -200,7 +230,9 @@ button:focus-visible {
   padding: 3px 0;
 }
 
-.schema .row:last-child { border-bottom: none; }
+.schema .row:last-child {
+  border-bottom: none;
+}
 
 .schema .key {
   color: var(--muted);
@@ -212,7 +244,9 @@ button:focus-visible {
   color: var(--ink);
 }
 
-.schema .val a { color: var(--petrol); }
+.schema .val a {
+  color: var(--petrol);
+}
 
 .schema .status {
   color: var(--petrol);
@@ -223,26 +257,11 @@ button:focus-visible {
   content: "● ";
 }
 
-.schema .row.lang-block {
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 6px;
-}
 
-.schema .lang-list {
-  display: flex;
-  flex-direction: column;
-  gap: 3px;
-  font-family: var(--font-display);
-  font-size: 13px;
-  color: var(--ink);
-}
+/* ==========================================================================
+   SKILLS
+   ========================================================================== */
 
-.schema .lang-list b {
-  font-weight: 600;
-}
-
-/* ---------- Skills strip ---------- */
 .skills-strip {
   padding: 28px 0;
   border-bottom: 1px solid var(--line);
@@ -272,13 +291,19 @@ button:focus-visible {
   background: var(--petrol-wash);
 }
 
-/* ---------- Section headers ---------- */
+
+/* ==========================================================================
+   SECTIONS
+   ========================================================================== */
+
 .section {
   padding: clamp(48px, 8vw, 80px) 0;
   border-bottom: 1px solid var(--line);
 }
 
-.section:last-of-type { border-bottom: none; }
+.section:last-of-type {
+  border-bottom: none;
+}
 
 .section-head {
   display: flex;
@@ -307,7 +332,11 @@ button:focus-visible {
   font-size: 1.02rem;
 }
 
-/* ---------- Project grid / records ---------- */
+
+/* ==========================================================================
+   PROJECT CARDS
+   ========================================================================== */
+
 .records {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
@@ -317,6 +346,7 @@ button:focus-visible {
 }
 
 .record {
+  position: relative;
   background: var(--paper-raised);
   padding: 26px 26px 24px;
   display: flex;
@@ -325,7 +355,9 @@ button:focus-visible {
   transition: background 0.15s ease;
 }
 
-.record:hover { background: var(--petrol-wash); }
+.record:hover {
+  background: var(--petrol-wash);
+}
 
 .record .rec-top {
   display: flex;
@@ -365,7 +397,9 @@ button:focus-visible {
   gap: 3px;
 }
 
-.record .rec-meta span.k { color: var(--muted); }
+.record .rec-meta span.k {
+  color: var(--muted);
+}
 
 .record .rec-finding {
   font-size: 14.5px;
@@ -383,16 +417,20 @@ button:focus-visible {
   padding-top: 10px;
 }
 
-.record .rec-link::after { content: " →"; }
+.record .rec-link::after {
+  content: " →";
+}
 
 .record a.record-hit {
   position: absolute;
   inset: 0;
 }
 
-.record { position: relative; }
 
-/* ---------- Timeline (experience/education) ---------- */
+/* ==========================================================================
+   EXPERIENCE & EDUCATION
+   ========================================================================== */
+
 .timeline {
   display: flex;
   flex-direction: column;
@@ -406,7 +444,9 @@ button:focus-visible {
   border-top: 1px solid var(--line);
 }
 
-.tl-item:first-child { border-top: none; }
+.tl-item:first-child {
+  border-top: none;
+}
 
 .tl-date {
   font-family: var(--font-mono);
@@ -436,32 +476,25 @@ button:focus-visible {
   font-size: 15.5px;
 }
 
-.tl-item li { margin-bottom: 5px; }
+.tl-item li {
+  margin-bottom: 5px;
+}
 
-/* ---------- About / footer ---------- */
+
+/* ==========================================================================
+   ABOUT
+   ========================================================================== */
+
 .about-text {
   max-width: 68ch;
   font-size: 1.08rem;
   color: var(--ink-soft);
 }
 
-.langs {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-  gap: 14px;
-  margin-top: 8px;
-}
 
-.lang-row {
-  font-family: var(--font-mono);
-  font-size: 13px;
-  display: flex;
-  justify-content: space-between;
-  border-bottom: 1px solid var(--line);
-  padding-bottom: 8px;
-}
-
-.lang-row .level { color: var(--petrol); }
+/* ==========================================================================
+   FOOTER
+   ========================================================================== */
 
 .site-footer {
   padding: 48px 0 60px;
@@ -477,8 +510,15 @@ button:focus-visible {
   gap: 20px;
 }
 
-.site-footer a { color: var(--paper); text-decoration: underline; text-underline-offset: 3px; }
-.site-footer a:hover { color: var(--petrol-light); }
+.site-footer a {
+  color: var(--paper);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.site-footer a:hover {
+  color: var(--petrol-light);
+}
 
 .footer-mark {
   font-family: var(--font-mono);
@@ -486,13 +526,22 @@ button:focus-visible {
   color: #9AA39B;
 }
 
-/* ---------- Project detail page ---------- */
+
+/* ==========================================================================
+   PROJECT DETAIL PAGE
+   ========================================================================== */
+
 .proj-hero {
   padding: 44px 0 36px;
   border-bottom: 1px solid var(--line);
 }
 
-.proj-hero .rec-id { font-family: var(--font-mono); font-size: 12px; color: var(--muted); margin-bottom: 10px; }
+.proj-hero .rec-id {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--muted);
+  margin-bottom: 10px;
+}
 
 .proj-hero h1 {
   font-size: clamp(1.9rem, 4vw, 2.7rem);
@@ -542,9 +591,14 @@ button:focus-visible {
   margin-bottom: 18px;
 }
 
-.proj-body h2:first-child { margin-top: 0; }
+.proj-body h2:first-child {
+  margin-top: 0;
+}
 
-.proj-body p { color: var(--ink-soft); max-width: 72ch; }
+.proj-body p {
+  color: var(--ink-soft);
+  max-width: 72ch;
+}
 
 .proj-body ul {
   padding-left: 20px;
@@ -552,7 +606,9 @@ button:focus-visible {
   max-width: 72ch;
 }
 
-.proj-body li { margin-bottom: 9px; }
+.proj-body li {
+  margin-bottom: 9px;
+}
 
 .proj-body .sub {
   font-family: var(--font-display);
@@ -561,6 +617,11 @@ button:focus-visible {
   color: var(--ink);
   margin: 20px 0 8px;
 }
+
+
+/* ==========================================================================
+   FINDINGS
+   ========================================================================== */
 
 .findings-list {
   list-style: none;
@@ -575,12 +636,22 @@ button:focus-visible {
   color: var(--ink-soft);
 }
 
+
+/* ==========================================================================
+   PROJECT SKILL TAGS
+   ========================================================================== */
+
 .skill-tags {
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
   max-width: 72ch;
 }
+
+
+/* ==========================================================================
+   CONFIDENTIAL NOTE
+   ========================================================================== */
 
 .confidential-note {
   margin-top: 44px;
@@ -594,7 +665,11 @@ button:focus-visible {
   max-width: 72ch;
 }
 
-/* ---------- Proof gallery + code snippets ---------- */
+
+/* ==========================================================================
+   PROJECT GALLERY
+   ========================================================================== */
+
 .gallery {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -628,9 +703,10 @@ button:focus-visible {
   grid-column: span 2;
 }
 
-@media (max-width: 680px) {
-  .gallery.wide figure.span2 { grid-column: span 1; }
-}
+
+/* ==========================================================================
+   CODE BLOCKS
+   ========================================================================== */
 
 .code-block {
   background: #1B211D;
@@ -654,7 +730,15 @@ button:focus-visible {
   margin-bottom: 10px;
 }
 
-.code-block pre { margin: 0; white-space: pre-wrap; }
+.code-block pre {
+  margin: 0;
+  white-space: pre-wrap;
+}
+
+
+/* ==========================================================================
+   REPOSITORY LINK
+   ========================================================================== */
 
 .repo-link {
   display: inline-flex;
@@ -670,7 +754,15 @@ button:focus-visible {
   background: var(--paper-raised);
 }
 
-.repo-link:hover { border-color: var(--petrol); color: var(--petrol); }
+.repo-link:hover {
+  border-color: var(--petrol);
+  color: var(--petrol);
+}
+
+
+/* ==========================================================================
+   PROJECT NAVIGATION
+   ========================================================================== */
 
 .proj-nav {
   padding: 32px 0 60px;
@@ -680,9 +772,29 @@ button:focus-visible {
   font-size: 13px;
 }
 
-/* ---------- Responsive ---------- */
+
+/* ==========================================================================
+   RESPONSIVE
+   ========================================================================== */
+
 @media (max-width: 780px) {
-  .hero-grid { grid-template-columns: 1fr; }
-  .tl-item { grid-template-columns: 1fr; gap: 6px; }
-  .site-footer .container { flex-direction: column; align-items: flex-start; }
+  .hero-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .tl-item {
+    grid-template-columns: 1fr;
+    gap: 6px;
+  }
+
+  .site-footer .container {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+@media (max-width: 680px) {
+  .gallery.wide figure.span2 {
+    grid-column: span 1;
+  }
 }
