@@ -1,7 +1,6 @@
 /* ==========================================================================
    Martina Števanková — Portfolio
-   Design system: "structured record" motif — a data scientist's own
-   bio and work presented as field:value data, not decorated cards.
+   Design system: "structured record" motif
    ========================================================================== */
 
 :root {
@@ -245,13 +244,6 @@ button:focus-visible {
   border-bottom: none;
 }
 
-/*
-   Same typography as:
-   Programming & Analysis
-   BI & Data Applications
-   Machine Learning
-   Methods
-*/
 .schema .key {
   font-family: var(--font-mono);
   font-size: 13px;
@@ -261,11 +253,6 @@ button:focus-visible {
   min-width: 0;
 }
 
-/*
-   Same typography as:
-   Python, R, SQL, Excel
-   Power BI, Dash / Plotly...
-*/
 .schema .val {
   font-family: var(--font-mono);
   font-size: 13px;
@@ -392,16 +379,54 @@ button:focus-visible {
 
 
 /* ==========================================================================
-   PROJECT GRID / RECORDS
+   PROJECT GRID — 2 / 3 / 2
    ========================================================================== */
+
+/*
+   Six invisible columns give us enough flexibility to create:
+
+   Row 1: 2 projects = 3 columns each
+   Row 2: 3 projects = 2 columns each
+   Row 3: 2 projects = 3 columns each
+*/
 
 .records {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  grid-template-columns: repeat(6, minmax(0, 1fr));
   gap: 1px;
   background: var(--line);
   border: 1px solid var(--line);
 }
+
+
+/* Row 1 — two wider cards */
+
+.record:nth-child(1),
+.record:nth-child(2) {
+  grid-column: span 3;
+}
+
+
+/* Row 2 — three standard cards */
+
+.record:nth-child(3),
+.record:nth-child(4),
+.record:nth-child(5) {
+  grid-column: span 2;
+}
+
+
+/* Row 3 — two wider cards */
+
+.record:nth-child(6),
+.record:nth-child(7) {
+  grid-column: span 3;
+}
+
+
+/* ==========================================================================
+   PROJECT CARDS
+   ========================================================================== */
 
 .record {
   position: relative;
@@ -444,6 +469,7 @@ button:focus-visible {
 .record h3 {
   font-size: 1.22rem;
   margin-bottom: 2px;
+  max-width: 28ch;
 }
 
 .record .rec-meta {
@@ -465,6 +491,7 @@ button:focus-visible {
   border-left: 2px solid var(--petrol);
   padding-left: 12px;
   margin-top: 2px;
+  max-width: 48ch;
 }
 
 .record .rec-link {
@@ -954,16 +981,30 @@ svg .lc-tick {
 
 
 /* ==========================================================================
-   RESPONSIVE
+   RESPONSIVE — TABLET
    ========================================================================== */
 
 @media (max-width: 780px) {
+
   .hero-grid {
     grid-template-columns: 1fr;
   }
 
   .hero h1 {
     white-space: normal;
+  }
+
+  /*
+     Project layout becomes a normal
+     two-column grid on tablets.
+  */
+
+  .records {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .record:nth-child(n) {
+    grid-column: span 1;
   }
 
   .tl-item {
@@ -977,7 +1018,17 @@ svg .lc-tick {
   }
 }
 
+
+/* ==========================================================================
+   RESPONSIVE — MOBILE
+   ========================================================================== */
+
 @media (max-width: 680px) {
+
+  .records {
+    grid-template-columns: 1fr;
+  }
+
   .gallery.wide figure.span2 {
     grid-column: span 1;
   }
