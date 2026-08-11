@@ -244,28 +244,37 @@ button:focus-visible {
 
 /* ---------- Skills strip ---------- */
 .skills-strip {
-  padding: 32px 0;
+  padding: 28px 0;
   border-bottom: 1px solid var(--line);
 }
 
-.skills-strip .container {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-  gap: 24px 32px;
-}
-
-.skill-group-heading {
-  font-family: var(--font-display);
-  font-weight: 600;
-  font-size: 14px;
-  color: var(--ink);
-  margin-bottom: 12px;
-}
-
-.skill-tags-row {
+.skill-rows {
   display: flex;
-  gap: 8px;
-  flex-wrap: wrap;
+  flex-direction: column;
+}
+
+.skill-row {
+  display: flex;
+  gap: 20px;
+  padding: 10px 0;
+  border-top: 1px dashed var(--line);
+  font-family: var(--font-mono);
+  font-size: 13px;
+}
+
+.skill-row:first-child {
+  border-top: none;
+}
+
+.skill-row-label {
+  min-width: 220px;
+  flex-shrink: 0;
+  font-weight: 500;
+  color: var(--ink);
+}
+
+.skill-row-items {
+  color: var(--ink-soft);
 }
 
 .tag {
@@ -277,12 +286,6 @@ button:focus-visible {
   padding: 5px 13px;
   white-space: nowrap;
   background: var(--paper-raised);
-}
-
-.tag.accent {
-  border-color: var(--petrol);
-  color: var(--petrol);
-  background: var(--petrol-wash);
 }
 
 /* ---------- Section headers ---------- */
@@ -314,7 +317,7 @@ button:focus-visible {
 
 .section-lede {
   color: var(--muted);
-  max-width: 92ch;
+  max-width: none;
   margin-top: -22px;
   margin-bottom: 36px;
   font-size: 1.02rem;
@@ -453,7 +456,7 @@ button:focus-visible {
 
 /* ---------- About / footer ---------- */
 .about-text {
-  max-width: 92ch;
+  max-width: none;
   font-size: 1.08rem;
   color: var(--ink-soft);
 }
@@ -480,11 +483,13 @@ button:focus-visible {
   background: var(--paper-raised);
   border: 1px solid var(--line);
   border-radius: 6px;
-  padding: 24px 28px 12px;
+  padding: 20px 24px 10px;
+  max-width: 640px;
 }
 
 .lang-chart svg {
   width: 100%;
+  max-width: 560px;
   height: auto;
   display: block;
 }
