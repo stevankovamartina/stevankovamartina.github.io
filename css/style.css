@@ -179,7 +179,7 @@ button:focus-visible {
 .hero .thesis {
   font-size: 1.2rem;
   color: var(--ink-soft);
-  max-width: 46ch;
+  max-width: 56ch;
 }
 
 /* schema block */
@@ -248,33 +248,44 @@ button:focus-visible {
   border-bottom: 1px solid var(--line);
 }
 
-.skill-rows {
-  display: flex;
-  flex-direction: column;
+.skills-card {
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  overflow: hidden;
+  background: var(--paper-raised);
 }
 
-.skill-row {
-  display: flex;
-  gap: 20px;
-  padding: 10px 0;
-  border-top: 1px dashed var(--line);
+.skills-card-head {
+  background: var(--petrol-wash);
+  color: var(--petrol);
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  padding: 12px 22px;
+  border-bottom: 1px solid var(--line);
+}
+
+.skills-list {
+  padding: 18px 22px 20px;
+}
+
+.skills-list p {
   font-family: var(--font-mono);
   font-size: 13px;
-}
-
-.skill-row:first-child {
-  border-top: none;
-}
-
-.skill-row-label {
-  min-width: 220px;
-  flex-shrink: 0;
-  font-weight: 500;
-  color: var(--ink);
-}
-
-.skill-row-items {
   color: var(--ink-soft);
+  line-height: 1.8;
+  margin: 0 0 6px;
+}
+
+.skills-list p:last-child {
+  margin-bottom: 0;
+}
+
+.skills-list strong {
+  color: var(--ink);
+  font-weight: 600;
 }
 
 .tag {
@@ -483,13 +494,13 @@ button:focus-visible {
   background: var(--paper-raised);
   border: 1px solid var(--line);
   border-radius: 6px;
-  padding: 20px 24px 10px;
-  max-width: 640px;
+  padding: 18px 22px 10px;
+  max-width: 540px;
 }
 
 .lang-chart svg {
   width: 100%;
-  max-width: 560px;
+  max-width: 500px;
   height: auto;
   display: block;
 }
