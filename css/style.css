@@ -194,6 +194,15 @@ button:focus-visible {
   line-height: 1.9;
 }
 
+.schema-head {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: clamp(1.6rem, 3vw, 2.1rem);
+  color: var(--ink);
+  letter-spacing: -0.01em;
+  margin-bottom: 12px;
+}
+
 .schema .row {
   display: flex;
   gap: 14px;
@@ -447,11 +456,35 @@ button:focus-visible {
   margin-bottom: 2px;
 }
 
+.tl-subrole {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  color: var(--muted);
+  margin-bottom: 6px;
+}
+
 .tl-org {
   font-family: var(--font-mono);
   font-size: 13px;
   color: var(--petrol);
   margin-bottom: 10px;
+}
+
+.tl-sub-label {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--petrol);
+  margin: 12px 0 4px;
+}
+
+.tl-sub-content {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  color: var(--ink-soft);
+  line-height: 1.7;
+  margin: 0;
 }
 
 .tl-item ul {
