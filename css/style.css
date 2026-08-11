@@ -526,12 +526,12 @@ button:focus-visible {
   border: 1px solid var(--line);
   border-radius: 6px;
   padding: 18px 22px 10px;
-  max-width: 540px;
+  max-width: 660px;
 }
 
 .lang-chart svg {
   width: 100%;
-  max-width: 500px;
+  max-width: 620px;
   height: auto;
   display: block;
 }
