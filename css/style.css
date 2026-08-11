@@ -26,13 +26,23 @@
   --pad: clamp(20px, 5vw, 56px);
 }
 
+
+/* ==========================================================================
+   GENERAL
+   ========================================================================== */
+
 @media (prefers-reduced-motion: no-preference) {
-  html { scroll-behavior: smooth; }
+  html {
+    scroll-behavior: smooth;
+  }
 }
 
-* { box-sizing: border-box; }
+* {
+  box-sizing: border-box;
+}
 
-html, body {
+html,
+body {
   margin: 0;
   padding: 0;
   background: var(--paper);
@@ -46,7 +56,10 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-img { max-width: 100%; display: block; }
+img {
+  max-width: 100%;
+  display: block;
+}
 
 a {
   color: var(--petrol);
@@ -60,7 +73,10 @@ a {
   padding-right: var(--pad);
 }
 
-h1, h2, h3, h4 {
+h1,
+h2,
+h3,
+h4 {
   font-family: var(--font-display);
   font-weight: 600;
   line-height: 1.15;
@@ -68,7 +84,9 @@ h1, h2, h3, h4 {
   letter-spacing: -0.01em;
 }
 
-p { margin: 0 0 1em; }
+p {
+  margin: 0 0 1em;
+}
 
 .mono {
   font-family: var(--font-mono);
@@ -80,14 +98,17 @@ p { margin: 0 0 1em; }
   color: var(--paper);
 }
 
-/* Focus visibility */
 a:focus-visible,
 button:focus-visible {
   outline: 2px solid var(--petrol);
   outline-offset: 3px;
 }
 
-/* ---------- Nav ---------- */
+
+/* ==========================================================================
+   NAVIGATION
+   ========================================================================== */
+
 .site-nav {
   position: sticky;
   top: 0;
@@ -135,13 +156,19 @@ button:focus-visible {
   padding: 4px 0;
 }
 
-.nav-links a:hover { color: var(--petrol); }
+.nav-links a:hover {
+  color: var(--petrol);
+}
 
 .nav-links a.back {
   color: var(--petrol);
 }
 
-/* ---------- Hero ---------- */
+
+/* ==========================================================================
+   HERO
+   ========================================================================== */
+
 .hero {
   padding: clamp(48px, 9vw, 96px) 0 clamp(32px, 6vw, 64px);
   border-bottom: 1px solid var(--line);
@@ -183,15 +210,16 @@ button:focus-visible {
   max-width: none;
 }
 
-/* schema block */
+
+/* ==========================================================================
+   PROFILE
+   ========================================================================== */
+
 .schema {
   background: var(--paper-raised);
   border: 1px solid var(--line);
   border-radius: 6px;
   padding: 20px 22px;
-  font-family: var(--font-mono);
-  font-size: 13.5px;
-  line-height: 1.9;
 }
 
 .schema-head {
@@ -200,29 +228,56 @@ button:focus-visible {
   font-size: clamp(1.6rem, 3vw, 2.1rem);
   color: var(--ink);
   letter-spacing: -0.01em;
-  margin-bottom: 12px;
+  line-height: 1.15;
+  margin-bottom: 16px;
 }
 
 .schema .row {
-  display: flex;
+  display: grid;
+  grid-template-columns: 110px minmax(0, 1fr);
   gap: 14px;
+  align-items: start;
+  padding: 7px 0;
   border-bottom: 1px dashed var(--line);
-  padding: 3px 0;
 }
 
-.schema .row:last-child { border-bottom: none; }
+.schema .row:last-child {
+  border-bottom: none;
+}
 
+/*
+   Same typography as:
+   Programming & Analysis
+   BI & Data Applications
+   Machine Learning
+   Methods
+*/
 .schema .key {
-  color: var(--muted);
-  min-width: 92px;
-  flex-shrink: 0;
-}
-
-.schema .val {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1.8;
   color: var(--ink);
+  min-width: 0;
 }
 
-.schema .val a { color: var(--petrol); }
+/*
+   Same typography as:
+   Python, R, SQL, Excel
+   Power BI, Dash / Plotly...
+*/
+.schema .val {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 1.8;
+  color: var(--ink-soft);
+  min-width: 0;
+}
+
+.schema .val a {
+  color: var(--petrol);
+}
 
 .schema .status {
   color: var(--petrol);
@@ -231,28 +286,14 @@ button:focus-visible {
 
 .schema .status::before {
   content: "● ";
+  color: var(--petrol);
 }
 
-.schema .row.lang-block {
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 6px;
-}
 
-.schema .lang-list {
-  display: flex;
-  flex-direction: column;
-  gap: 3px;
-  font-family: var(--font-display);
-  font-size: 13px;
-  color: var(--ink);
-}
+/* ==========================================================================
+   TECHNICAL SKILLS
+   ========================================================================== */
 
-.schema .lang-list b {
-  font-weight: 600;
-}
-
-/* ---------- Skills strip ---------- */
 .skills-strip {
   padding: 28px 0;
   border-bottom: 1px solid var(--line);
@@ -281,6 +322,7 @@ button:focus-visible {
 .skills-list p {
   font-family: var(--font-mono);
   font-size: 13px;
+  font-weight: 400;
   color: var(--ink-soft);
   line-height: 1.8;
   margin: 0 0 6px;
@@ -291,6 +333,7 @@ button:focus-visible {
 }
 
 .skills-list strong {
+  font-family: var(--font-mono);
   color: var(--ink);
   font-weight: 600;
 }
@@ -306,13 +349,19 @@ button:focus-visible {
   background: var(--paper-raised);
 }
 
-/* ---------- Section headers ---------- */
+
+/* ==========================================================================
+   SECTION HEADERS
+   ========================================================================== */
+
 .section {
   padding: clamp(48px, 8vw, 80px) 0;
   border-bottom: 1px solid var(--line);
 }
 
-.section:last-of-type { border-bottom: none; }
+.section:last-of-type {
+  border-bottom: none;
+}
 
 .section-head {
   display: flex;
@@ -341,7 +390,11 @@ button:focus-visible {
   font-size: 1.02rem;
 }
 
-/* ---------- Project grid / records ---------- */
+
+/* ==========================================================================
+   PROJECT GRID / RECORDS
+   ========================================================================== */
+
 .records {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
@@ -351,6 +404,7 @@ button:focus-visible {
 }
 
 .record {
+  position: relative;
   background: var(--paper-raised);
   padding: 26px 26px 24px;
   display: flex;
@@ -359,7 +413,9 @@ button:focus-visible {
   transition: background 0.15s ease;
 }
 
-.record:hover { background: var(--petrol-wash); }
+.record:hover {
+  background: var(--petrol-wash);
+}
 
 .record .rec-top {
   display: flex;
@@ -399,7 +455,9 @@ button:focus-visible {
   gap: 3px;
 }
 
-.record .rec-meta span.k { color: var(--muted); }
+.record .rec-meta span.k {
+  color: var(--muted);
+}
 
 .record .rec-finding {
   font-size: 14.5px;
@@ -417,16 +475,20 @@ button:focus-visible {
   padding-top: 10px;
 }
 
-.record .rec-link::after { content: " →"; }
+.record .rec-link::after {
+  content: " →";
+}
 
 .record a.record-hit {
   position: absolute;
   inset: 0;
 }
 
-.record { position: relative; }
 
-/* ---------- Timeline (experience/education) ---------- */
+/* ==========================================================================
+   TIMELINE — EXPERIENCE & EDUCATION
+   ========================================================================== */
+
 .timeline {
   display: flex;
   flex-direction: column;
@@ -440,7 +502,9 @@ button:focus-visible {
   border-top: 1px solid var(--line);
 }
 
-.tl-item:first-child { border-top: none; }
+.tl-item:first-child {
+  border-top: none;
+}
 
 .tl-date {
   font-family: var(--font-mono);
@@ -494,14 +558,25 @@ button:focus-visible {
   font-size: 15.5px;
 }
 
-.tl-item li { margin-bottom: 5px; }
+.tl-item li {
+  margin-bottom: 5px;
+}
 
-/* ---------- About / footer ---------- */
+
+/* ==========================================================================
+   ABOUT
+   ========================================================================== */
+
 .about-text {
   max-width: none;
   font-size: 1.08rem;
   color: var(--ink-soft);
 }
+
+
+/* ==========================================================================
+   LANGUAGES
+   ========================================================================== */
 
 .langs {
   display: grid;
@@ -519,7 +594,9 @@ button:focus-visible {
   padding-bottom: 8px;
 }
 
-.lang-row .level { color: var(--petrol); }
+.lang-row .level {
+  color: var(--petrol);
+}
 
 .lang-chart {
   background: var(--paper-raised);
@@ -550,11 +627,25 @@ button:focus-visible {
   fill: var(--petrol);
 }
 
-.lc-bar.lvl-1 { opacity: 0.45; }
-.lc-bar.lvl-2 { opacity: 0.6; }
-.lc-bar.lvl-3 { opacity: 0.78; }
-.lc-bar.lvl-4 { opacity: 0.92; }
-.lc-bar.full { opacity: 1; }
+.lc-bar.lvl-1 {
+  opacity: 0.45;
+}
+
+.lc-bar.lvl-2 {
+  opacity: 0.6;
+}
+
+.lc-bar.lvl-3 {
+  opacity: 0.78;
+}
+
+.lc-bar.lvl-4 {
+  opacity: 0.92;
+}
+
+.lc-bar.full {
+  opacity: 1;
+}
 
 svg .lc-label {
   font-family: var(--font-mono);
@@ -580,6 +671,11 @@ svg .lc-tick {
   fill: var(--muted);
 }
 
+
+/* ==========================================================================
+   FOOTER
+   ========================================================================== */
+
 .site-footer {
   padding: 48px 0 60px;
   background: var(--ink);
@@ -594,8 +690,15 @@ svg .lc-tick {
   gap: 20px;
 }
 
-.site-footer a { color: var(--paper); text-decoration: underline; text-underline-offset: 3px; }
-.site-footer a:hover { color: var(--petrol-light); }
+.site-footer a {
+  color: var(--paper);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.site-footer a:hover {
+  color: var(--petrol-light);
+}
 
 .footer-mark {
   font-family: var(--font-mono);
@@ -603,13 +706,22 @@ svg .lc-tick {
   color: #9AA39B;
 }
 
-/* ---------- Project detail page ---------- */
+
+/* ==========================================================================
+   PROJECT DETAIL PAGE
+   ========================================================================== */
+
 .proj-hero {
   padding: 44px 0 36px;
   border-bottom: 1px solid var(--line);
 }
 
-.proj-hero .rec-id { font-family: var(--font-mono); font-size: 12px; color: var(--muted); margin-bottom: 10px; }
+.proj-hero .rec-id {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--muted);
+  margin-bottom: 10px;
+}
 
 .proj-hero h1 {
   font-size: clamp(1.9rem, 4vw, 2.7rem);
@@ -659,9 +771,14 @@ svg .lc-tick {
   margin-bottom: 18px;
 }
 
-.proj-body h2:first-child { margin-top: 0; }
+.proj-body h2:first-child {
+  margin-top: 0;
+}
 
-.proj-body p { color: var(--ink-soft); max-width: 72ch; }
+.proj-body p {
+  color: var(--ink-soft);
+  max-width: 72ch;
+}
 
 .proj-body ul {
   padding-left: 20px;
@@ -669,7 +786,9 @@ svg .lc-tick {
   max-width: 72ch;
 }
 
-.proj-body li { margin-bottom: 9px; }
+.proj-body li {
+  margin-bottom: 9px;
+}
 
 .proj-body .sub {
   font-family: var(--font-display);
@@ -678,6 +797,11 @@ svg .lc-tick {
   color: var(--ink);
   margin: 20px 0 8px;
 }
+
+
+/* ==========================================================================
+   FINDINGS
+   ========================================================================== */
 
 .findings-list {
   list-style: none;
@@ -692,12 +816,22 @@ svg .lc-tick {
   color: var(--ink-soft);
 }
 
+
+/* ==========================================================================
+   SKILL TAGS
+   ========================================================================== */
+
 .skill-tags {
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
   max-width: 72ch;
 }
+
+
+/* ==========================================================================
+   CONFIDENTIAL NOTE
+   ========================================================================== */
 
 .confidential-note {
   margin-top: 44px;
@@ -711,7 +845,11 @@ svg .lc-tick {
   max-width: 72ch;
 }
 
-/* ---------- Proof gallery + code snippets ---------- */
+
+/* ==========================================================================
+   GALLERY
+   ========================================================================== */
+
 .gallery {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -745,9 +883,10 @@ svg .lc-tick {
   grid-column: span 2;
 }
 
-@media (max-width: 680px) {
-  .gallery.wide figure.span2 { grid-column: span 1; }
-}
+
+/* ==========================================================================
+   CODE BLOCKS
+   ========================================================================== */
 
 .code-block {
   background: #1B211D;
@@ -771,7 +910,15 @@ svg .lc-tick {
   margin-bottom: 10px;
 }
 
-.code-block pre { margin: 0; white-space: pre-wrap; }
+.code-block pre {
+  margin: 0;
+  white-space: pre-wrap;
+}
+
+
+/* ==========================================================================
+   REPOSITORY LINK
+   ========================================================================== */
 
 .repo-link {
   display: inline-flex;
@@ -787,7 +934,15 @@ svg .lc-tick {
   background: var(--paper-raised);
 }
 
-.repo-link:hover { border-color: var(--petrol); color: var(--petrol); }
+.repo-link:hover {
+  border-color: var(--petrol);
+  color: var(--petrol);
+}
+
+
+/* ==========================================================================
+   PROJECT NAVIGATION
+   ========================================================================== */
 
 .proj-nav {
   padding: 32px 0 60px;
@@ -797,9 +952,52 @@ svg .lc-tick {
   font-size: 13px;
 }
 
-/* ---------- Responsive ---------- */
+
+/* ==========================================================================
+   RESPONSIVE
+   ========================================================================== */
+
 @media (max-width: 780px) {
-  .hero-grid { grid-template-columns: 1fr; }
-  .tl-item { grid-template-columns: 1fr; gap: 6px; }
-  .site-footer .container { flex-direction: column; align-items: flex-start; }
+  .hero-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hero h1 {
+    white-space: normal;
+  }
+
+  .tl-item {
+    grid-template-columns: 1fr;
+    gap: 6px;
+  }
+
+  .site-footer .container {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+@media (max-width: 680px) {
+  .gallery.wide figure.span2 {
+    grid-column: span 1;
+  }
+
+  .nav-links {
+    gap: 14px;
+    font-size: 11px;
+  }
+
+  .schema .row {
+    grid-template-columns: 95px minmax(0, 1fr);
+    gap: 12px;
+  }
+
+  .schema .key,
+  .schema .val {
+    font-size: 12px;
+  }
+
+  .skills-list p {
+    font-size: 12px;
+  }
 }
