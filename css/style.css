@@ -165,7 +165,8 @@ button:focus-visible {
 }
 
 .hero h1 {
-  font-size: clamp(2.4rem, 5.4vw, 4rem);
+  font-size: clamp(2rem, 3.6vw, 3.1rem);
+  white-space: nowrap;
   margin-bottom: 0.2em;
 }
 
@@ -179,7 +180,7 @@ button:focus-visible {
 .hero .thesis {
   font-size: 1.2rem;
   color: var(--ink-soft);
-  max-width: 56ch;
+  max-width: none;
 }
 
 /* schema block */
@@ -256,15 +257,12 @@ button:focus-visible {
 }
 
 .skills-card-head {
-  background: var(--petrol-wash);
-  color: var(--petrol);
   font-family: var(--font-display);
   font-weight: 600;
-  font-size: 13px;
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
-  padding: 12px 22px;
-  border-bottom: 1px solid var(--line);
+  font-size: clamp(1.6rem, 3vw, 2.1rem);
+  color: var(--ink);
+  letter-spacing: -0.01em;
+  padding: 22px 22px 10px;
 }
 
 .skills-list {
